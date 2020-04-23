@@ -170,6 +170,7 @@
     <Compile Include="Controllers\CastDetailsController.cs" />
     <Compile Include="Controllers\CastMembersController.cs" />
     <Compile Include="Controllers\DVDDetailsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoansController.cs" />
     <Compile Include="Controllers\MemberCategoriesController.cs" />
     <Compile Include="Controllers\MembersController.cs" />

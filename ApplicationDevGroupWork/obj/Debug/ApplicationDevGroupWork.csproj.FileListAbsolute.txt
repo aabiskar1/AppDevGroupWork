@@ -107,3 +107,4 @@ C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj\Debug\ApplicationDevGroupWork.Migrations.InitialCreate.resources
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj\Debug\ApplicationDevGroupWork.csproj.GenerateResource.cache
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj\Debug\ApplicationDevGroupWork.Migrations.CastDetails.resources
+C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj\Debug\ApplicationDevGroupWork.csprojAssemblyReference.cache
