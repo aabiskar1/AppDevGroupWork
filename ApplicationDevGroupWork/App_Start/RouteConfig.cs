@@ -14,10 +14,46 @@ namespace ApplicationDevGroupWork
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+      name: "Default1",
+      url: "Producers/{controller}/{action}/{id}",
+      defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+   );
+            routes.MapRoute(
+      name: "Default2",
+      url: "Loan/{controller}/{action}/{id}",
+      defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+   );
+
+
+            routes.MapRoute(
+              name: "Default3",
+              url: "DVDDetails/{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+              name: "Default4",
+              url: "CastDetails/{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+
+
+            routes.MapRoute(
+              name: "Default5",
+              url: "CastMembers/{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+
+
+
+
+            routes.MapRoute(
+         name: "Default",
+         url: "{controller}/{action}/{id}",
+         defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+         );
+
+
         }
     }
 }

@@ -167,15 +167,36 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\CastDetailsController.cs" />
+    <Compile Include="Controllers\CastMembersController.cs" />
+    <Compile Include="Controllers\DVDDetailsController.cs" />
+    <Compile Include="Controllers\LoansController.cs" />
+    <Compile Include="Controllers\MemberCategoriesController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ProducersController.cs" />
+    <Compile Include="Data\DataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004230542486_InitialCreate.cs" />
+    <Compile Include="Migrations\202004230542486_InitialCreate.Designer.cs">
+      <DependentUpon>202004230542486_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004230655134_CastDetails.cs" />
+    <Compile Include="Migrations\202004230655134_CastDetails.Designer.cs">
+      <DependentUpon>202004230655134_CastDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CastDetails.cs" />
+    <Compile Include="Models\CastMembers.cs" />
+    <Compile Include="Models\DVDDetails.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\MemberCategory.cs" />
+    <Compile Include="Models\Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -235,6 +256,46 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\CastDetails\Create.cshtml" />
+    <Content Include="Views\CastDetails\Delete.cshtml" />
+    <Content Include="Views\CastDetails\Details.cshtml" />
+    <Content Include="Views\CastDetails\Edit.cshtml" />
+    <Content Include="Views\CastDetails\Index.cshtml" />
+    <Content Include="Views\CastMembers\Create.cshtml" />
+    <Content Include="Views\CastMembers\Delete.cshtml" />
+    <Content Include="Views\CastMembers\Details.cshtml" />
+    <Content Include="Views\CastMembers\Edit.cshtml" />
+    <Content Include="Views\CastMembers\Index.cshtml" />
+    <Content Include="Views\DVDDetails\Create.cshtml" />
+    <Content Include="Views\DVDDetails\Delete.cshtml" />
+    <Content Include="Views\DVDDetails\Details.cshtml" />
+    <Content Include="Views\DVDDetails\Edit.cshtml" />
+    <Content Include="Views\DVDDetails\Index.cshtml" />
+    <Content Include="Views\MemberCategories\Create.cshtml" />
+    <Content Include="Views\MemberCategories\Delete.cshtml" />
+    <Content Include="Views\MemberCategories\Details.cshtml" />
+    <Content Include="Views\MemberCategories\Edit.cshtml" />
+    <Content Include="Views\MemberCategories\Index.cshtml" />
+    <Content Include="Views\Loans\Create.cshtml" />
+    <Content Include="Views\Loans\Delete.cshtml" />
+    <Content Include="Views\Loans\Details.cshtml" />
+    <Content Include="Views\Loans\Edit.cshtml" />
+    <Content Include="Views\Loans\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Producers\Create.cshtml" />
+    <Content Include="Views\Producers\Delete.cshtml" />
+    <Content Include="Views\Producers\Details.cshtml" />
+    <Content Include="Views\Producers\Edit.cshtml" />
+    <Content Include="Views\Producers\Index.cshtml" />
+    <Content Include="Views\CastMembers1\Create.cshtml" />
+    <Content Include="Views\CastMembers1\Delete.cshtml" />
+    <Content Include="Views\CastMembers1\Details.cshtml" />
+    <Content Include="Views\CastMembers1\Edit.cshtml" />
+    <Content Include="Views\CastMembers1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +312,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004230542486_InitialCreate.resx">
+      <DependentUpon>202004230542486_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004230655134_CastDetails.resx">
+      <DependentUpon>202004230655134_CastDetails.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
