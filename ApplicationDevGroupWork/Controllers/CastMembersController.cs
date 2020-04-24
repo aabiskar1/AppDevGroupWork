@@ -13,7 +13,7 @@ namespace ApplicationDevGroupWork.Controllers
 {
     public class CastMembersController : Controller
     {
-        private Data.DataContext db = new Data.DataContext();
+        private DataContext db = new DataContext();
 
         // GET: CastMembers
         public ActionResult Index()
