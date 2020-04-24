@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ApplicationDevGroupWork",
+    "\\ApplicationDevGroupWork\\App_Start",
+    "\\ApplicationDevGroupWork\\Controllers",
+    "\\ApplicationDevGroupWork\\Models",
+    "\\ApplicationDevGroupWork\\Views",
+    "\\ApplicationDevGroupWork\\Views\\Account",
+    "\\ApplicationDevGroupWork\\Views\\CastDetails"
+  ],
+  "SelectedNode": "\\ApplicationDevGroupWork\\Views\\Account\\Login.cshtml",
+  "PreviewInSolutionExplorer": false
+}

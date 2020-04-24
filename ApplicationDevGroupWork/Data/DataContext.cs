@@ -32,5 +32,7 @@ namespace ApplicationDevGroupWork.Data
         public System.Data.Entity.DbSet<ApplicationDevGroupWork.Models.Member> Members { get; set; }
 
         public System.Data.Entity.DbSet<ApplicationDevGroupWork.Models.Producer> Producers { get; set; }
+        public object Users { get; internal set; }
+        public object Roles { get; internal set; }
     }
 }
