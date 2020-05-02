@@ -247,6 +247,10 @@
     <Compile Include="Migrations\202004230655134_CastDetails.Designer.cs">
       <DependentUpon>202004230655134_CastDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005020546122_UserRoles.cs" />
+    <Compile Include="Migrations\202005020546122_UserRoles.Designer.cs">
+      <DependentUpon>202005020546122_UserRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUserRoleViewModel.cs" />
@@ -383,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004230655134_CastDetails.resx">
       <DependentUpon>202004230655134_CastDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005020546122_UserRoles.resx">
+      <DependentUpon>202005020546122_UserRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

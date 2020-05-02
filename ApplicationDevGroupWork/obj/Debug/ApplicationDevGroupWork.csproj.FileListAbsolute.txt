@@ -256,3 +256,4 @@ C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\bin
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\bin\System.Numerics.Vectors.xml
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Legion\source\repos\ApplicationDevGroupWork\ApplicationDevGroupWork\obj\Debug\ApplicationDevGroupWork.Migrations.UserRoles.resources

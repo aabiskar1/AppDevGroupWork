@@ -1,5 +1,6 @@
 ﻿using ApplicationDevGroupWork.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 using System;
 
 using System.Data.Entity;
@@ -35,7 +36,7 @@ namespace ApplicationDevGroupWork.Controllers
             var role = dbCon.Roles.Find(model.RoleId);
             if (role != null)
             {
-              //await UserManager.AddToRoleAsync(model.UserId, role.Name);
+                //await UserManager.AddToRoleAsync(model.UserId, role.Name);
             }
             return RedirectToAction("AddUserToRole");
 

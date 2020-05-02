@@ -18,7 +18,7 @@ namespace ApplicationDevGroupWork.Controllers
         public ActionResult FilterTitleByLastName(string LastName)
         {
             var data = dbCon.CastMembers.Include("DVDDetails").Include("CastDetails")
-                .Where(x => x.CastDetails.Name == LastName);
+                .Where(x => x.CastDetails.LastName == LastName);
             return View(data);
 
         }
