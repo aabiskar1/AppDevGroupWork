@@ -16,39 +16,53 @@
 
 
 
-@if (Model == null)
-{
+
+
     <form action="/Report/FilterTitleByLastName" method="get">
         @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
         <button type="submit">Submit</button>
     </form>
-}
-else
-{
+
+
+    @if(Model!= null){
 
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CastDetails.FirstName)
+             First Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DVDDetails.Name)
+                Last Name
             </th>
-            <th></th>
+
+            <th>
+                DVD Title
+            </th>
+            <th> DVD Cover</th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CastDetails.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DVDDetails.Name)
-                </td>
-      
-            </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CastDetails.FirstName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CastDetails.LastName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DVDDetails.Name)
+        </td>
+
+        <td>
+            <img src="@Url.Content(item.DVDDetails.CoverImagePath)" width="100px" height="100px" />
+        </td>
+
+    </tr>
         }
+        
 
     </table>
 }

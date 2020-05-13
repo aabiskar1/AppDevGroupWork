@@ -23,9 +23,9 @@ namespace DVDRentalSystem.Models
         public int Length { get; set; }
         [NotMapped]
 
-        public HttpPostedFile CoverImage { get; set; }
+        public HttpPostedFileBase CoverImage { get; set; }
 
-        [DisplayName("Upload File")]
+        [DisplayName("Cover Image")]
         public string CoverImagePath { get; set; }
 
 

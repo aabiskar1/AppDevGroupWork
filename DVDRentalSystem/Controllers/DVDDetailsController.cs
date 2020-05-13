@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DVDRentalSystem.Models;
 using DataContext.Data;
+using System.IO;
 
 namespace DVDRentalSystem.Controllers
 {
@@ -39,6 +40,8 @@ namespace DVDRentalSystem.Controllers
         // GET: DVDDetails/Create
         public ActionResult Create()
         {
+
+
             return View();
         }
 
@@ -47,10 +50,19 @@ namespace DVDRentalSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DVDDetailsId,Name,Genre,ReleaseDate,Length,CoverImagePath")] DVDDetails dVDDetails)
+        public ActionResult Create([Bind(Include = "DVDDetailsId,Name,Genre,ReleaseDate,Length,CoverImage,CoverImagePath")] DVDDetails dVDDetails)
         {
             if (ModelState.IsValid)
             {
+
+                string fileName = Path.GetFileNameWithoutExtension(dVDDetails.CoverImage.FileName);
+                string extension = Path.GetExtension(dVDDetails.CoverImage.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                dVDDetails.CoverImagePath = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"),fileName);
+                dVDDetails.CoverImage.SaveAs(fileName);
+
+
                 db.DVDDetails.Add(dVDDetails);
                 db.SaveChanges();
                 return RedirectToAction("Index");

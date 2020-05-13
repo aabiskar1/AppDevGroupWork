@@ -362,6 +362,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
     <Folder Include="Views\UserAndRoles\" />
   </ItemGroup>
   <ItemGroup>
