@@ -16,6 +16,11 @@ namespace DVDRentalSystem.Controllers
         }
         public ActionResult FilterTitleByLastName(string LastName)
         {
+            ViewBag.LastName = dbCon.CastDetails.ToList();
+            if (String.IsNullOrEmpty(LastName))
+            {
+                return View();
+            }
             var data = dbCon.CastMembers.Include("DVDDetails").Include("CastDetails")
                 .Where(x => x.CastDetails.LastName == LastName);
             return View(data);
