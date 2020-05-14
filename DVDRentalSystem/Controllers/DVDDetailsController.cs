@@ -40,8 +40,6 @@ namespace DVDRentalSystem.Controllers
         // GET: DVDDetails/Create
         public ActionResult Create()
         {
-
-
             return View();
         }
 
@@ -50,7 +48,7 @@ namespace DVDRentalSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DVDDetailsId,Name,Genre,ReleaseDate,Length,CoverImage,CoverImagePath")] DVDDetails dVDDetails)
+        public ActionResult Create([Bind(Include = "DVDDetailsId,Name,Genre,LoanStatus,NumberOfCopies,ReleaseDate,Length,CoverImage,CoverImagePath")] DVDDetails dVDDetails)
         {
             if (ModelState.IsValid)
             {
@@ -59,8 +57,10 @@ namespace DVDRentalSystem.Controllers
                 string extension = Path.GetExtension(dVDDetails.CoverImage.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                 dVDDetails.CoverImagePath = "~/Image/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Image/"),fileName);
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
                 dVDDetails.CoverImage.SaveAs(fileName);
+
+
 
 
                 db.DVDDetails.Add(dVDDetails);
@@ -91,7 +91,7 @@ namespace DVDRentalSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DVDDetailsId,Name,Genre,ReleaseDate,Length,CoverImagePath")] DVDDetails dVDDetails)
+        public ActionResult Edit([Bind(Include = "DVDDetailsId,Name,Genre,LoanStatus,NumberOfCopies,ReleaseDate,Length,CoverImagePath")] DVDDetails dVDDetails)
         {
             if (ModelState.IsValid)
             {

@@ -27,6 +27,30 @@
             @Html.DisplayFor(model => model.Member.FirstName)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FineAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FineAmount)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

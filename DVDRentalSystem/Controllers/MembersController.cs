@@ -40,7 +40,7 @@ namespace DVDRentalSystem.Controllers
         // GET: Members/Create
         public ActionResult Create()
         {
-            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "FirstName");
+            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "Name");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace DVDRentalSystem.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "FirstName", member.MemberCategoryId);
+            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "Name", member.MemberCategoryId);
             return View(member);
         }
 
@@ -74,7 +74,7 @@ namespace DVDRentalSystem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "FirstName", member.MemberCategoryId);
+            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "Name", member.MemberCategoryId);
             return View(member);
         }
 
@@ -91,7 +91,7 @@ namespace DVDRentalSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "FirstName", member.MemberCategoryId);
+            ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "MemberCategoryId", "Name", member.MemberCategoryId);
             return View(member);
         }
 

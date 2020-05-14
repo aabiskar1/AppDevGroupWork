@@ -18,6 +18,12 @@
             @Html.DisplayNameFor(model => model.Genre)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.LoanStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfCopies)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ReleaseDate)
         </th>
         <th>
@@ -30,28 +36,43 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Length)
-        </td>
-        <td>
-            <img src="@Url.Content(item.CoverImagePath)" width="100px" height="100px" />
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DVDDetailsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DVDDetailsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DVDDetailsId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Genre)
+    </td>
+
+    <td>
+        @if (item.LoanStatus)
+        {
+            <p>Loaned</p>
+        }
+        else
+        {
+            <p>Not on Loan</p>}
+
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfCopies)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReleaseDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Length)
+    </td>
+    <td>
+        <img src="@Url.Content(item.CoverImagePath)" width="100px" height="100px" />
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DVDDetailsId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.DVDDetailsId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DVDDetailsId })
+    </td>
+</tr>
 }
 
 </table>

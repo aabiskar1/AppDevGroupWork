@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DVDRentalSystem.Models.CastMembers>
+
+@{
+    ViewBag.Title = "FilterTitleByCount";
+}
+
+<h2>FilterTitleByCount</h2>
+
+
+
+
+
+<form action="/FilterLastNameByShelves/FilterTitleByCount" method="get">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (Model != null)
+{
+
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                DVD NAME
+            </th>
+
+            <th> DVD Cover</th>
+            <th> Artist First Name</th>
+            <th> Artist Last Name</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DVDDetails.Name)
+        </td>
+
+
+
+
+        <td>
+            <img src="@Url.Content(item.DVDDetails.CoverImagePath)" width="100px" height="100px" />
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CastDetails.FirstName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CastDetails.LastName)
+        </td>
+
+
+    </tr>
+        }
+
+
+
+    </table>
+}

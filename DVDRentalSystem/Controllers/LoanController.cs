@@ -11,107 +11,116 @@ using DataContext.Data;
 
 namespace DVDRentalSystem.Controllers
 {
-    public class MemberCategoriesController : Controller
+    public class LoanController : Controller
     {
         private DVDRentalSystemContext db = new DVDRentalSystemContext();
 
-        // GET: MemberCategories
+        // GET: Loan
         public ActionResult Index()
         {
-            return View(db.MemberCategories.ToList());
+            var loans = db.Loans.Include(l => l.DVDDetails).Include(l => l.Member);
+            return View(loans.ToList());
         }
 
-        // GET: MemberCategories/Details/5
+        // GET: Loan/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MemberCategory memberCategory = db.MemberCategories.Find(id);
-            if (memberCategory == null)
+            Loan loan = db.Loans.Find(id);
+            if (loan == null)
             {
                 return HttpNotFound();
             }
-            return View(memberCategory);
+            return View(loan);
         }
 
-        // GET: MemberCategories/Create
+        // GET: Loan/Create
         public ActionResult Create()
         {
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name");
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName");
             return View();
         }
 
-        // POST: MemberCategories/Create
+        // POST: Loan/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemberCategoryId,Name,Description,TotalLoan")] MemberCategory memberCategory)
+        public ActionResult Create([Bind(Include = "LoanId,DVDDetailsId,IssueDate,ReturnDate,FineAmount,MemberId")] Loan loan)
         {
             if (ModelState.IsValid)
             {
-                db.MemberCategories.Add(memberCategory);
+                db.Loans.Add(loan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(memberCategory);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
+            return View(loan);
         }
 
-        // GET: MemberCategories/Edit/5
+        // GET: Loan/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MemberCategory memberCategory = db.MemberCategories.Find(id);
-            if (memberCategory == null)
+            Loan loan = db.Loans.Find(id);
+            if (loan == null)
             {
                 return HttpNotFound();
             }
-            return View(memberCategory);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
+            return View(loan);
         }
 
-        // POST: MemberCategories/Edit/5
+        // POST: Loan/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MemberCategoryId,Name,Description,TotalLoan")] MemberCategory memberCategory)
+        public ActionResult Edit([Bind(Include = "LoanId,DVDDetailsId,IssueDate,ReturnDate,FineAmount,MemberId")] Loan loan)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(memberCategory).State = EntityState.Modified;
+                db.Entry(loan).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(memberCategory);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
+            return View(loan);
         }
 
-        // GET: MemberCategories/Delete/5
+        // GET: Loan/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MemberCategory memberCategory = db.MemberCategories.Find(id);
-            if (memberCategory == null)
+            Loan loan = db.Loans.Find(id);
+            if (loan == null)
             {
                 return HttpNotFound();
             }
-            return View(memberCategory);
+            return View(loan);
         }
 
-        // POST: MemberCategories/Delete/5
+        // POST: Loan/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MemberCategory memberCategory = db.MemberCategories.Find(id);
-            db.MemberCategories.Remove(memberCategory);
+            Loan loan = db.Loans.Find(id);
+            db.Loans.Remove(loan);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

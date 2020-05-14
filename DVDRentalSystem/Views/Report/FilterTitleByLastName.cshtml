@@ -4,20 +4,7 @@
     ViewBag.Title = "FilterTitleByLastName";
 }
 
-
-
-
-
-
 <h2>FilterTitleByLastName</h2>
-
-
-
-
-
-
-
-
     <form action="/Report/FilterTitleByLastName" method="get">
         @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
         <button type="submit">Submit</button>
@@ -29,7 +16,7 @@
     <table class="table">
         <tr>
             <th>
-             First Name
+                First Name
             </th>
             <th>
                 Last Name
@@ -39,6 +26,7 @@
                 DVD Title
             </th>
             <th> DVD Cover</th>
+            <th> Loan Status</th>
         </tr>
 
         @foreach (var item in Model)
@@ -58,6 +46,15 @@
 
         <td>
             <img src="@Url.Content(item.DVDDetails.CoverImagePath)" width="100px" height="100px" />
+        </td>
+        <td>
+            @if (item.DVDDetails.LoanStatus)
+            {
+                <p>Loaned</p>
+            }
+            else
+            {
+                <p>Not on Loan</p>}
         </td>
 
     </tr>
