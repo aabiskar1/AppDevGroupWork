@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DVDRentalSystem.Models.Loan>
+
+@{
+    ViewBag.Title = "FilterMembersByDVDDate";
+}
+
+<h2>FilterMembersByDVDDate</h2>
+
+<form action="/FilterMembersByDVDDate/FilterMembersByDVDDate" method="get">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+
+            <th> DVD Cover</th>
+            <th> DVD Name</th>
+            <th> DVD Genre</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            <img src="@Url.Content(item.DVDDetails.CoverImagePath)" width="100px" height="100px" />
+
+        </td>
+
+
+
+
+        <td>   @Html.DisplayFor(modelItem => item.DVDDetails.Name)</td>
+
+<td>
+            @Html.DisplayFor(modelItem => item.DVDDetails.Genre)
+        </td>
+
+
+
+    </tr>
+        }
+
+
+
+    </table>
+}

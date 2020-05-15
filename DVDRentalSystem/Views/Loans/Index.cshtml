@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.DVDDetails.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Member.FirstName)
+            @Html.DisplayNameFor(model => model.Members.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IssueDate)
@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FineAmount)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.returned)
+        </th>
         <th></th>
     </tr>
 
@@ -35,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.DVDDetails.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Member.FirstName)
+            @Html.DisplayFor(modelItem => item.Members.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IssueDate)
@@ -45,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FineAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.returned)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LoanId }) |

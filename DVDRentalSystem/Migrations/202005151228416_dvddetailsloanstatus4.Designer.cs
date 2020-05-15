@@ -13,7 +13,7 @@ namespace DVDRentalSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005140936473_dvddetailsloanstatus4"; }
+            get { return "202005151228416_dvddetailsloanstatus4"; }
         }
         
         string IMigrationMetadata.Source

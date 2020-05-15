@@ -11,33 +11,33 @@ using DataContext.Data;
 
 namespace DVDRentalSystem.Controllers
 {
-    public class LoanController : Controller
+    public class DVDMembersController : Controller
     {
         private DVDRentalSystemContext db = new DVDRentalSystemContext();
 
-        // GET: Loan
+        // GET: DVDMembers
         public ActionResult Index()
         {
-            var loans = db.Loans.Include(l => l.DVDDetails).Include(l => l.Member);
-            return View(loans.ToList());
+            var dVDMembers = db.DVDMembers.Include(d => d.DVDDetails).Include(d => d.Members);
+            return View(dVDMembers.ToList());
         }
 
-        // GET: Loan/Details/5
+        // GET: DVDMembers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Loan loan = db.Loans.Find(id);
-            if (loan == null)
+            DVDMember dVDMember = db.DVDMembers.Find(id);
+            if (dVDMember == null)
             {
                 return HttpNotFound();
             }
-            return View(loan);
+            return View(dVDMember);
         }
 
-        // GET: Loan/Create
+        // GET: DVDMembers/Create
         public ActionResult Create()
         {
             ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name");
@@ -45,82 +45,82 @@ namespace DVDRentalSystem.Controllers
             return View();
         }
 
-        // POST: Loan/Create
+        // POST: DVDMembers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LoanId,DVDDetailsId,IssueDate,ReturnDate,FineAmount,MemberId")] Loan loan)
+        public ActionResult Create([Bind(Include = "DVDMemberId,MemberId,DVDDetailsId")] DVDMember dVDMember)
         {
             if (ModelState.IsValid)
             {
-                db.Loans.Add(loan);
+                db.DVDMembers.Add(dVDMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
-            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
-            return View(loan);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", dVDMember.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", dVDMember.MemberId);
+            return View(dVDMember);
         }
 
-        // GET: Loan/Edit/5
+        // GET: DVDMembers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Loan loan = db.Loans.Find(id);
-            if (loan == null)
+            DVDMember dVDMember = db.DVDMembers.Find(id);
+            if (dVDMember == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
-            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
-            return View(loan);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", dVDMember.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", dVDMember.MemberId);
+            return View(dVDMember);
         }
 
-        // POST: Loan/Edit/5
+        // POST: DVDMembers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LoanId,DVDDetailsId,IssueDate,ReturnDate,FineAmount,MemberId")] Loan loan)
+        public ActionResult Edit([Bind(Include = "DVDMemberId,MemberId,DVDDetailsId")] DVDMember dVDMember)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(loan).State = EntityState.Modified;
+                db.Entry(dVDMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", loan.DVDDetailsId);
-            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", loan.MemberId);
-            return View(loan);
+            ViewBag.DVDDetailsId = new SelectList(db.DVDDetails, "DVDDetailsId", "Name", dVDMember.DVDDetailsId);
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "FirstName", dVDMember.MemberId);
+            return View(dVDMember);
         }
 
-        // GET: Loan/Delete/5
+        // GET: DVDMembers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Loan loan = db.Loans.Find(id);
-            if (loan == null)
+            DVDMember dVDMember = db.DVDMembers.Find(id);
+            if (dVDMember == null)
             {
                 return HttpNotFound();
             }
-            return View(loan);
+            return View(dVDMember);
         }
 
-        // POST: Loan/Delete/5
+        // POST: DVDMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Loan loan = db.Loans.Find(id);
-            db.Loans.Remove(loan);
+            DVDMember dVDMember = db.DVDMembers.Find(id);
+            db.DVDMembers.Remove(dVDMember);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
